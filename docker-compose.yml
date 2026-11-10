@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: loufhub-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: loufhub
+      POSTGRES_USER: loufhub
+      POSTGRES_PASSWORD: change_this_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - loufhub_pgdata:/var/lib/postgresql/data
+volumes:
+  loufhub_pgdata:
